@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#182c26" />
+  <title>Golden Fields — Myanmar Countryside</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game">
+    <canvas id="world" aria-label="3D Myanmar countryside game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">✦</div><div><b>GOLDEN FIELDS</b><span>MYANMAR COUNTRYSIDE</span></div></div>
+      <div class="location"><span class="location-dot"></span><div><b>INLE VALLEY</b><small>SHAN STATE · 06:42 AM</small></div></div>
+      <div class="top-actions"><button class="icon-btn" id="soundBtn" title="Toggle sound">♫</button><button class="icon-btn" id="mapBtn" title="Map">⌖</button><button class="avatar-mini" id="profileBtn">T</button></div>
+    </header>
+    <section class="status-row">
+      <div class="weather-pill"><span id="weatherIcon">☀</span><span id="weatherLabel">Clear skies</span><i></i><span>24°</span></div>
+      <div class="day-pill"><span>◷</span><span id="dayLabel">DAY 01</span><div class="day-meter"><i id="dayProgress"></i></div></div>
+    </section>
+    <section class="quest-card panel" id="questCard">
+      <div class="quest-heading"><span class="eyebrow">VILLAGE REQUEST</span><button class="close-small" id="questToggle">⌃</button></div>
+      <h2>First harvest</h2><p>Help Daw Mya gather rice for the morning market.</p>
+      <div class="quest-progress"><span id="questCount">0 / 3 bundles</span><div><i id="questProgress"></i></div></div>
+      <button class="quest-pin" id="questPin"><span>⌖</span> TRACK QUEST</button>
+    </section>
+    <section class="inventory panel">
+      <div class="inventory-head"><div><span class="eyebrow">YOUR SATCHEL</span><h3>Inventory</h3></div><button id="bagBtn" class="more-btn">•••</button></div>
+      <div class="items">
+        <div class="item"><span class="item-icon rice">♧</span><b id="riceCount">0</b><small>Rice</small></div>
+        <div class="item"><span class="item-icon fish">♧</span><b id="fishCount">0</b><small>Fish</small></div>
+        <div class="item"><span class="item-icon wood">♨</span><b id="woodCount">8</b><small>Timber</small></div>
+        <div class="item"><span class="item-icon coin">◉</span><b id="coinCount">24</b><small>Kyat</small></div>
+      </div>
+      <button class="craft-link" id="craftBtn">✦ &nbsp; CRAFT & COOK <span>→</span></button>
+    </section>
+    <div class="compass"><span>N</span><div class="compass-ring"><i></i></div><span>SE</span></div>
+    <div class="minimap panel"><div class="map-title">INLE VALLEY <span>⌗</span></div><canvas id="minimap" width="180" height="132"></canvas><div class="map-legend"><i></i> You are here <span>·</span> <b>◈</b> Village</div></div>
+    <div class="interaction-toast" id="toast"><span>✦</span><div><b id="toastTitle">Welcome home</b><small id="toastText">Your little patch of the valley is waiting.</small></div></div>
+    <div class="prompt" id="prompt"><span class="keycap">E</span><span id="promptText">Talk to Daw Mya</span></div>
+    <div class="bottom-ui">
+      <div class="movement-hint"><span>W</span><div><span>A</span><span>S</span><span>D</span></div><small>MOVE</small></div>
+      <div class="mobile-stick" id="joystick"><div class="stick-base"><i id="stickKnob"></i></div></div>
+      <div class="action-buttons">
+        <button class="action secondary" id="jumpBtn"><span>↟</span><small>JUMP</small></button>
+        <button class="action primary" id="actionBtn"><span id="actionIcon">✦</span><small id="actionLabel">INTERACT</small></button>
+      </div>
+    </div>
+    <div class="reticle"><i></i></div>
+    <div id="modalRoot"></div>
+    <div class="controls-note"><span>WASD</span> Move <span>·</span> Drag to look <span>·</span> <span>E</span> Interact</div>
+  </main>
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
